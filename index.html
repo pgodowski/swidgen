@@ -1,0 +1,115 @@
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>IBM ISO SWID 19770-2 online generator</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <script type="text/javascript">
+
+  
+    window.onload=function(){
+  
+
+  new ClipboardJS('.btn');
+
+  
+
+$("input").on("input", function() {
+  var name = $('#swname').val();
+  var version = $('#version').val();
+  var tagCreator = $('#tagCreator').val();
+  var regid = $('#regid').val();
+  
+  var licensor = $('#licensor').val();
+  var licensor_regid = $('#licensor_regid').val();
+  
+  var licensorStr = "";
+  if (licensor != "") {
+	licensorStr = "  <Entity name=\"" + licensor + "\" regid=\"" + licensor_regid + "\" role=\"licensor\" /> \n";
+  }
+  
+   
+
+  $("#output").text("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n" +
+    "<SoftwareIdentity xml:lang=\"EN\" name=\"" + name + "\" version=\"" + version + "\" \n versionScheme=\"multipartnumeric\" \n tagId=\"swidgen-" + guid() + "_" + version + "\" \n xmlns=\"http://standards.iso.org/iso/19770/-2/2015/schema.xsd\"> \n" +
+    " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n xsi:schemaLocation=\"http://standards.iso.org/iso/19770/-2/2015-current/schema.xsd schema.xsd\" >\n" +
+    "  <Meta generator=\"SWID Tag Online Generator v0.1\" /> \n" +
+    "  <Entity name=\"" + tagCreator + "\" regid=\"" + regid + "\" role=\"tagCreator\" /> \n"
+	 + licensorStr + 
+    "</SoftwareIdentity>"
+  );
+});
+
+
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+
+    }
+
+</script>
+
+</head>
+<body>
+  <h2>
+  ISO SWID 19770-2 online generator
+</h2>
+<div class="bd-example">
+  <form>
+    <label for="swname"> Product name:</label>
+    <input class="form-control" name="swname" id="swname" placeholder="Your Software Name" required="" autofocus="" type="text">
+    <label for="version">Product Version:</label>
+    <input class="form-control" name="version" id="version" pattern="^([0-9]+)\.([0-9]+)\.?([0-9]+)?.*" placeholder="1.0" required="" type="text">
+	<label for="tagCreator">TagCreator:</label>
+    <input class="form-control" name="tagCreator" id="tagCreator" value="IBM" placeholder="Vendor Name, e.g. IBM" required="" type="text">
+    <label for="regid">Tag Creator domain name:</label>
+    <input class="form-control" name="regid" id="regid" value="ibm.com" placeholder="vendor domain, e.g. ibm.com" required="" type="text">
+	
+	<p>
+  <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    More entries...
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+   	<label for="licensor">Licensor:</label>
+    <input class="form-control" name="licensor" id="licensor"  placeholder="Licensor company name, e.g. IBM" type="text">
+    <label for="licensor_regid">Licensor domain name:</label>
+    <input class="form-control" name="licensor_regid" id="licensor_regid" placeholder="vendor domain, e.g. ibm.com" type="text">
+	
+   	<label for="softwareCreator">Software Creator:</label>
+    <input class="form-control" name="softwareCreator" id="softwareCreator"  placeholder="Licensor company name, e.g. IBM" type="text">
+    <label for="softwareCreator_regid">Software Creator domain name:</label>
+    <input class="form-control" name="softwareCreator_regid" id="softwareCreator_regid" placeholder="vendor domain, e.g. ibm.com" type="text">
+  </div>
+</div>
+
+
+  </form>
+  <button class="btn btn-outline-secondary" data-clipboard-target="#output">
+    Copy to clipboard
+</button>
+Once generated, put it into your software, so that it resides under <code>[INSTALL_PATH]/swidtag</code>.
+  <div class="p-3 mb-2 bg-light text-dark">
+    <pre class=".pre-scrollable"><div id="output"></div></pre>
+  </div>
+
+</div>
+
+</body></html>
