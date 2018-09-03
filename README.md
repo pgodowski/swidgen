@@ -21,5 +21,8 @@ like application name & version, vendor name, etc. Sample generated tag below:
 ### Tag Conformance
 The generated ISO 19770-2 SWID tag conforms to the [ISO 19770-2:2015](https://www.iso.org/standard/65666.html) schema.
 
+### Hosting options
+[Hosted on GitHub Pages](https://pgodowski.github.io/)
+
 #### Other similar tools
 [TagVault.org's](https://tagvault.org/tools/swid-signing-tool/) tag generator & digital signing tool.
