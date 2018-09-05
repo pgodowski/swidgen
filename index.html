@@ -47,6 +47,8 @@ $("input").on("input", function() {
 	 + licensorStr + 
     "</SoftwareIdentity>"
   );
+  
+  $("#filename").text("[INSTALL_PATH]/swidtag/" + regid + "_" + name + "_" + version + ".swidtag");
 });
 
 
@@ -105,7 +107,7 @@ function guid() {
   <button class="btn btn-outline-secondary" data-clipboard-target="#output">
     Copy to clipboard
 </button>
-Once generated, put it into your software, so that it resides under <code>[INSTALL_PATH]/swidtag</code>.
+Once generated, put it into your software, so that it resides under <code><span id="filename"></span></code>.
   <div class="p-3 mb-2 bg-light text-dark">
     <pre class=".pre-scrollable"><div id="output"></div></pre>
   </div>
