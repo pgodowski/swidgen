@@ -14,6 +14,17 @@
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
   <script type="text/javascript">
+  
+  String.prototype.format = function()
+{
+   var content = this;
+   for (var i=0; i < arguments.length; i++)
+   {
+        var replacement = '{' + i + '}';
+        content = content.replace(replacement, arguments[i]);  
+   }
+   return content;
+};
 
   
     window.onload=function(){
@@ -48,7 +59,8 @@ $("input").on("input", function() {
     "</SoftwareIdentity>"
   );
   
-  $("#filename").text("[INSTALL_PATH]/swidtag/" + regid + "_" + name + "_" + version + ".swidtag");
+  
+    $("#filename").text("[INSTALL_PATH]/swidtag/{0}_{1}_{2}.swidtag".format(regid, name, version));
 });
 
 
@@ -107,7 +119,7 @@ function guid() {
   <button class="btn btn-outline-secondary" data-clipboard-target="#output">
     Copy to clipboard
 </button>
-Once generated, put it into your software, so that it resides under <code><span id="filename"></span></code>.
+Once generated, put it into your software, so that it resides under <code><span id="filename">[INSTALL_PATH]/swidtag/</span></code>.
   <div class="p-3 mb-2 bg-light text-dark">
     <pre class=".pre-scrollable"><div id="output"></div></pre>
   </div>
