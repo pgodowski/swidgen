@@ -60,7 +60,7 @@ $("input").on("input", function() {
   );
   
   
-    $("#filename").text("[INSTALL_PATH]/swidtag/{0}_{1}_{2}.swidtag".format(regid, name, version));
+    $("#filename").text("[INSTALL_PATH]/swidtag/{0}_{1}-{2}.swidtag".format(regid, name, version));
 });
 
 
@@ -91,9 +91,9 @@ function guid() {
     <label for="version">Product Version:</label>
     <input class="form-control" name="version" id="version" pattern="^([0-9]+)\.([0-9]+)\.?([0-9]+)?.*" placeholder="1.0" required="" type="text">
 	<label for="tagCreator">TagCreator:</label>
-    <input class="form-control" name="tagCreator" id="tagCreator" value="IBM" placeholder="Vendor Name, e.g. IBM" required="" type="text">
+    <input class="form-control" name="tagCreator" id="tagCreator" placeholder="Vendor Name, e.g. Example Corp." required="" type="text">
     <label for="regid">Tag Creator domain name:</label>
-    <input class="form-control" name="regid" id="regid" value="ibm.com" placeholder="vendor domain, e.g. ibm.com" required="" type="text">
+    <input class="form-control" name="regid" id="regid" placeholder="vendor domain, e.g. example.com" required="" type="text">
 	
 	<p>
   <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -103,14 +103,14 @@ function guid() {
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
    	<label for="licensor">Licensor:</label>
-    <input class="form-control" name="licensor" id="licensor"  placeholder="Licensor company name, e.g. IBM" type="text">
+    <input class="form-control" name="licensor" id="licensor"  placeholder="Licensor company name, e.g. Example Corp" type="text">
     <label for="licensor_regid">Licensor domain name:</label>
-    <input class="form-control" name="licensor_regid" id="licensor_regid" placeholder="vendor domain, e.g. ibm.com" type="text">
+    <input class="form-control" name="licensor_regid" id="licensor_regid" placeholder="vendor domain, e.g. example.com" type="text">
 	
    	<label for="softwareCreator">Software Creator:</label>
-    <input class="form-control" name="softwareCreator" id="softwareCreator"  placeholder="Licensor company name, e.g. IBM" type="text">
+    <input class="form-control" name="softwareCreator" id="softwareCreator"  placeholder="Licensor company name, e.g. Example Corp." type="text">
     <label for="softwareCreator_regid">Software Creator domain name:</label>
-    <input class="form-control" name="softwareCreator_regid" id="softwareCreator_regid" placeholder="vendor domain, e.g. ibm.com" type="text">
+    <input class="form-control" name="softwareCreator_regid" id="softwareCreator_regid" placeholder="vendor domain, e.g. example.com" type="text">
   </div>
 </div>
 
