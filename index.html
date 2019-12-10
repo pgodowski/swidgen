@@ -43,10 +43,18 @@ $("input").on("input", function() {
   var licensor = $('#licensor').val();
   var licensor_regid = $('#licensor_regid').val();
   
-  var licensorStr = "";
+  var optionals = "";
   if (licensor != "") {
-	licensorStr = "  <Entity name=\"" + licensor + "\" regid=\"" + licensor_regid + "\" role=\"licensor\" /> \n";
+    optionals = "  <Entity name=\"" + licensor + "\" regid=\"" + licensor_regid + "\" role=\"licensor\" /> \n";
   }
+
+  var softwareCreator = $('#softwareCreator').val();
+  var softwareCreator_regid = $('#softwareCreator_regid').val();
+  var softwareCreatorStr = "";
+  if (softwareCreator != "") {
+    softwareCreatorStr = "  <Entity name=\"" + softwareCreator + "\" regid=\"" + softwareCreator_regid + "\" role=\"softwareCreator\" /> \n";
+  }
+  optionals += softwareCreatorStr;
   
    
 
@@ -55,7 +63,7 @@ $("input").on("input", function() {
     " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n xsi:schemaLocation=\"http://standards.iso.org/iso/19770/-2/2015-current/schema.xsd schema.xsd\" >\n" +
     "  <Meta generator=\"SWID Tag Online Generator v0.1\" /> \n" +
     "  <Entity name=\"" + tagCreator + "\" regid=\"" + regid + "\" role=\"tagCreator\" /> \n"
-	 + licensorStr + 
+   + optionals + 
     "</SoftwareIdentity>"
   );
   
